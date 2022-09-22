@@ -1,0 +1,56 @@
+[System]
+Name='TpFinal5'
+Type='mamdani'
+Version=2.0
+NumInputs=2
+NumOutputs=1
+NumRules=16
+AndMethod='min'
+OrMethod='max'
+ImpMethod='min'
+AggMethod='max'
+DefuzzMethod='centroid'
+
+[Input1]
+Name='temperatura'
+Range=[-5 50]
+NumMFs=4
+MF1='FRIO':'trimf',[-5 5 10]
+MF2='FRESCO':'trimf',[8 14 18]
+MF3='CALIDO':'trimf',[15 20 25]
+MF4='MUY_CALIDO':'trimf',[20 25 50]
+
+[Input2]
+Name='Humedad'
+Range=[0 100]
+NumMFs=4
+MF1='No_Confortable-':'trimf',[0 20 40]
+MF2='Agradable':'trimf',[50 55 60]
+MF3='No_Confortable+':'trimf',[65 85 100]
+MF4='Aceptable':'trimf',[35 55 70]
+
+[Output1]
+Name='output'
+Range=[0 1]
+NumMFs=3
+MF1='MALO':'trimf',[0 0.2 0.4167]
+MF2='NORMAL':'trimf',[0.3 0.5 0.7]
+MF3='BUENO':'trimf',[0.5 0.8 1]
+
+[Rules]
+1 1, 1 (1) : 1
+1 4, 2 (1) : 1
+1 2, 2 (1) : 1
+1 3, 1 (1) : 1
+2 1, 1 (1) : 1
+2 4, 2 (1) : 1
+2 2, 3 (1) : 1
+2 3, 1 (1) : 1
+3 1, 1 (1) : 1
+3 4, 3 (1) : 1
+3 2, 3 (1) : 1
+3 3, 1 (1) : 1
+4 1, 1 (1) : 1
+4 4, 3 (1) : 1
+4 2, 3 (1) : 1
+4 3, 1 (1) : 1
